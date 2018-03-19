@@ -16,16 +16,21 @@ public class Person implements Comparable<Person> {
         //0 - means yes
         //1 - mean greater than (this goes first)
 
+        System.out.println("This: " + this.firstName);
+        System.out.println("Other: " + other.getFirstName());
+        System.out.println();
         boolean areEqual = other.personId.equals(this.personId);
         if (areEqual) {
             return 0;
         } else {
             //                      3                   2
-            boolean isGreaterThan = other.getPersonId() < this.getPersonId();
+            boolean isGreaterThan = this.getPersonId() < other.getPersonId();
             if (isGreaterThan) {
-                return -1;
-            } else {
+                System.out.println(String.format("Other object [%s] is greater than this [%s]", other.getFirstName(), this.getFirstName()));
                 return 1;
+            } else {
+                System.out.println(String.format("Other object [%s] is less than this [%s]", other.getFirstName(), this.getFirstName()));
+                return -1;
             }
         }
     }
